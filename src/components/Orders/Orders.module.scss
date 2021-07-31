@@ -2,25 +2,33 @@ h1 {
   text-align: center;
 }
 
-td,
-th {
-  padding: 1rem 2rem;
-}
-
-tr:nth-child(even) {
-  background: grey;
-  color: white;
-}
-
-th {
-  background: black;
-  color: rgba(0, 0, 0, 0);
-  color: white;
-}
 table {
   margin: auto;
+  max-width: 100%;
   text-align: center;
   border-collapse: collapse;
+
+  td,
+  th {
+    padding: 1rem 2rem;
+  }
+
+  tr:nth-child(even) {
+    background: grey;
+    color: white;
+  }
+
+  th {
+    background: black;
+    color: rgba(0, 0, 0, 0);
+    color: white;
+  }
+  @media (max-width: 500px) {
+    td,
+    th {
+      padding: 1rem;
+    }
+  }
 }
 
 .trash {

@@ -26,8 +26,6 @@ function Grocery({ grocery }) {
             <div className={classes.img}>
                 <img
                     src={require(`./images/${grocery.name.split(' ').join('').toLowerCase()}.${grocery.name.toLowerCase() !== 'pork' ? 'svg' : 'png'}`).default}
-                    width="100"
-                    height="100"
                     alt={grocery.name}
                 />
             </div>

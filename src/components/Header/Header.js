@@ -11,7 +11,7 @@ const Header = (props) => {
                 </div>
 
                 <div>
-                    <input type="search" placeholder="Search grocery" onChange={props.searchHandler} />
+                    <input type="text" placeholder="Search grocery" onChange={props.searchHandler} />
                 </div>
 
             </header>

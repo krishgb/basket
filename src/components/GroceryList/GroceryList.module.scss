@@ -1,0 +1,28 @@
+.groceries {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  // margin-top: 5rem;
+
+  h1 {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  .selected {
+    border-bottom: 2px solid black;
+    opacity: 1;
+  }
+
+  @media (max-width: 680px) {
+    h1 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

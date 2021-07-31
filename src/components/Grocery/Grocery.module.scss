@@ -1,0 +1,48 @@
+.item {
+  display: grid;
+  gap: 2rem;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 1rem;
+  width: 12rem;
+
+  i {
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  span {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .img {
+    text-align: center;
+    background: grey;
+  }
+
+  @media (max-width: 472px) {
+    width: 30%;
+  }
+}
+
+.toggle {
+  animation: blink 0.5s linear;
+}
+@keyframes blink {
+  0% {
+    background-color: lightblue;
+  }
+  100% {
+    background-color: #fff;
+  }
+}

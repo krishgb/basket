@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+
+td,
+th {
+  padding: 1rem 2rem;
+}
+
+tr:nth-child(even) {
+  background: grey;
+  color: white;
+}
+
+th {
+  background: black;
+  color: rgba(0, 0, 0, 0);
+  color: white;
+}
+table {
+  margin: auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.trash {
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
+}

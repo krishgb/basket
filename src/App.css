@@ -1,9 +1,0 @@
-.grid {
-  display: grid;
-}
-
-.itemFlex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}

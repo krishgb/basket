@@ -1,0 +1,43 @@
+.itemFlex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.header {
+  background: black;
+  color: white;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  opacity: 1;
+
+  input {
+    height: 30px;
+    // font-size: medium;
+    border: 1px solid white;
+    border-radius: 2px;
+    background: black;
+    color: white;
+  }
+  .logo {
+    i {
+      font-size: 3rem;
+      color: yellow;
+    }
+
+    h1 {
+      display: inline;
+      font-size: 3rem;
+    }
+    @media (max-width: 600px) {
+      i {
+        font-size: 2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}

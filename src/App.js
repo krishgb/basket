@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
-import './App.css';
+import classes from './App.module.scss';
 import { items } from './items'
-import Header from './components/Header/Header'
+// import Header from './components/Header/Header'
 import GroceryList from './components/GroceryList/GroceryList'
 import Orders from './components/Orders/Orders';
 import Footer from './components/Footer/Footer';
@@ -12,7 +12,8 @@ import Grocery from './components/Grocery/Grocery';
 export const ThemeContext = createContext()
 
 function App() {
-  const [searchItem, setSeaarchItem] = useState([])
+  const [searchText, setSearchText] = useState('')
+  const [searchItem, setSearchItem] = useState([])
   const [ordered, setOrdered] = useState({})
   const [prices, setPrices] = useState([])
 
@@ -57,32 +58,40 @@ function App() {
   }, [ordered])
 
 
-  const searchHandler = (event) => {
-    if (!event.target.value.trim().length) {
-      setSeaarchItem([])
-      return
-    }
-    setSeaarchItem(items.item.filter(i => i.name.toLowerCase().trim().includes(event.target.value)))
-
-  }
+  useEffect(() => {
+    const { item } = items
+    setSearchItem(item.filter(i => i.name.trim().toLowerCase().includes(searchText)))
+  }, [searchText])
 
 
   return (
     <div className="App">
-      <Header searchHandler={searchHandler} />
+      {/* <Header searchHandler={searchHandler} /> */}
+      <header className={classes.header}>
+        <div className={classes.logo}>
+          <i className="fa fa-shopping-basket"></i>
+          <h1>Basket</h1>
+        </div>
+
+        <div>
+          <input type="text" placeholder="Search grocery" value={searchText} onChange={(event) => setSearchText(event.target.value.trim())} />
+        </div>
+
+      </header>
 
       <ThemeContext.Provider value={{ ordered, addOne, removeOne, removeItem, removeAllItem }}>
-        {
-          !searchItem.length ?
-            <GroceryList items={items} />
-            :
-            <div className="itemFlex">
-              {searchItem.map(item =>
-                <Grocery key={item.id} grocery={item} />
-              )}
-            </div>
+
+        {!searchText && <GroceryList items={items} />}
+
+        {searchText && <div className={classes.itemFlex}>
+          {searchItem.map(item =>
+            <Grocery key={item.id} grocery={item} />
+          )}
+        </div>
         }
+
         <Orders orders={prices} />
+
       </ThemeContext.Provider>
 
 

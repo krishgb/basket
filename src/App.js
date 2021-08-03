@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
 import classes from './App.module.scss';
 import { items } from './items'
-// import Header from './components/Header/Header'
+import Header from './components/Header/Header'
 import GroceryList from './components/GroceryList/GroceryList'
 import Orders from './components/Orders/Orders';
 import Footer from './components/Footer/Footer';
@@ -64,20 +64,14 @@ function App() {
   }, [searchText])
 
 
+  const searchHandler = (value) => {
+    setSearchText(value.toLowerCase())
+  }
+
   return (
     <div className="App">
-      {/* <Header searchHandler={searchHandler} /> */}
-      <header className={classes.header}>
-        <div className={classes.logo}>
-          <i className="fa fa-shopping-basket"></i>
-          <h1>Basket</h1>
-        </div>
+      <Header searchHandler={searchHandler} />
 
-        <div>
-          <input type="text" placeholder="Search grocery" value={searchText} onChange={(event) => setSearchText(event.target.value.trim())} />
-        </div>
-
-      </header>
 
       <ThemeContext.Provider value={{ ordered, addOne, removeOne, removeItem, removeAllItem }}>
 

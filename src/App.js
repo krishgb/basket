@@ -68,9 +68,12 @@ function App() {
     setSearchText(value.toLowerCase())
   }
 
+  // eslint-disable-next-line no-restricted-globals
+  const changeLocation = () => setSearchText('')
+
   return (
     <div className="App">
-      <Header searchHandler={searchHandler} />
+      <Header searchHandler={searchHandler} changeLocation={changeLocation} />
 
 
       <ThemeContext.Provider value={{ ordered, addOne, removeOne, removeItem, removeAllItem }}>
@@ -79,7 +82,7 @@ function App() {
 
         {searchText && <>
           <div className={classes.home}>
-            <button>Home</button>
+            <button onClick={changeLocation}>Home</button>
           </div>
           <div className={classes.itemFlex}>
 

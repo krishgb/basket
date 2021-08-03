@@ -2,13 +2,11 @@ import classes from './Header.module.scss'
 
 const Header = (props) => {
 
-    // eslint-disable-next-line no-restricted-globals
-    const changeLocation = () => location.href = '/'
 
     return (
         <>
             <header className={classes.header}>
-                <div className={classes.logo} onClick={changeLocation}>
+                <div className={classes.logo} onClick={props.changeLocation}>
                     <i className="fa fa-shopping-basket"></i>
                     <h1>Basket</h1>
                 </div>

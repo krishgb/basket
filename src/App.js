@@ -77,11 +77,19 @@ function App() {
 
         {!searchText && <GroceryList items={items} />}
 
-        {searchText && <div className={classes.itemFlex}>
-          {searchItem.map(item =>
-            <Grocery key={item.id} grocery={item} />
-          )}
-        </div>
+        {searchText && <>
+          <div className={classes.home}>
+            <button>Home</button>
+          </div>
+          <div className={classes.itemFlex}>
+
+            {searchItem.map(item =>
+
+              <Grocery key={item.id} grocery={item} />
+
+            )}
+          </div>
+        </>
         }
 
         <Orders orders={prices} />
